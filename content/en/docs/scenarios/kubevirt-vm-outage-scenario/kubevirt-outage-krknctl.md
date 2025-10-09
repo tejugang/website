@@ -18,7 +18,7 @@ Scenario specific parameters:  (be sure to scroll to right)
 ~-~-namespace | VMI Namespace to target | string | node-role.kubernetes.io/worker | 
 ~-~-vmi-name | VMI name to inject faults in case of targeting a specific node | string | 
 ~-~-timeout | Duration to wait for completion of node scenario injection | number | 180| 
-
+~-~-kill-count | Number of VMI's to kill (will perform serially) | number | 1| 
 
 To see all available scenario options 
 ```bash
