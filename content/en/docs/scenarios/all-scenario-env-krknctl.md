@@ -67,6 +67,7 @@ example:
 | ~-~-kubevirt-name| KubeVirt regex names to watch | string |  | 
 | ~-~-kubevirt-only-failures | KubeVirt checks only report if failure occurs | string |  |  | false |
 | ~-~-kubevirt-disconnected| KubeVirt checks in disconnected mode, bypassing the clusters Api | string |  | false |
+| ~-~-kubevirt-ssh-node | KubeVirt back up node to ssh into when checking vmi ip address status | string | | false |
 | ~-~-krkn-debug | Enables debug mode for Krkn  | enum | True/False | False| 
 
 {{% alert title="Note" %}} For setting the TELEMETRY_ARCHIVE_SIZE,the higher the number of archive files will be produced and uploaded (and processed by backup_thread simultaneously| .For unstable/slow connection is better to keep this value low increasing the number of backup_threads, in this way, on upload failure, the retry will happen only on the failed chunk without affecting the whole upload.{{% /alert %}}
