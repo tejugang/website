@@ -20,7 +20,6 @@ The system periodically checks the VMI's in the provided namespace based on the 
 - The duration the VMI had the specific status
 - The node the VMI is running on 
 
-
 This helps users quickly identify VMI issues and take necessary actions.
 
 ### Additional Installation of VirtCtl (If running using Krkn)
@@ -45,7 +44,8 @@ kubevirt_checks:                                      # Utilizing virt check end
     name: "^windows-vm-.$"                            # Regex Name style of VMI's to watch, optional, if left blank will find all names in namespace
     only_failures: False                              # Boolean of whether to show all VMI's failures and successful ssh connection (False), or only failure status' (True) 
     disconnected: False                               # Boolean of how to try to connect to the VMIs; if True will use the ip_address to try ssh from within a node, if false will use the name and uses virtctl to try to connect  
-    ssh_node: ""                                            # If set, will be a backup way to ssh to a node. Will want to set to a node that isn't targeted in chaos
+    ssh_node: ""                                      # If set, will be a backup way to ssh to a node. Will want to set to a node that isn't targeted in chaos
+    node_names: ""                                    # List of node names to further filter down the VM's, will only watch VMs with matching name in the given namespace that are running on node. Can put multiple by separating by a comma
 ```
 
 ##### Disconnected Environment
@@ -76,10 +76,15 @@ podman run --name=<container_name> --net=host \
 
 **Note:** Ensure your SSH key has appropriate permissions (`chmod 644 id_rsa`) and matches the key authorized on your worker nodes.
 
+
+#### Post Virt Checks
+After all scenarios have finished executing, krkn will perform a final check on the VMs matching the specified namespace and name. It will attempt to reach each VM and provide a list of any that are still unreachable at the end of the run. The list can be seen in the telemetry details at the end of the run. 
+
+
 #### Sample virt check telemetry
 Notice here that the vm with name windows-vm-1 had a false status (not able to form an ssh connection), for the first 37 seconds (the first item in the list). And at the end of the run the vm was able to for the ssh connection and reports true status for 41 seconds. While the vm with name windows-vm-0 has a true status the whole length of the chaos run (~88 seconds).
 
-When 
+
 ```
 "virt_checks": [
       {
@@ -116,5 +121,17 @@ When
           "new_ip_address": ""
       }
   ],
-
+"post_virt_checks": [
+      {
+          "node_name": "000-000",
+          "namespace": "runner",
+          "vm_name": "windows-vm-4",
+          "ip_address": "0.0.0.3",
+          "status": false,
+          "start_timestamp": "2025-07-22T13:43:30.461951",
+          "end_timestamp": "2025-07-22T13:43:30.461951",
+          "duration": 0.0,
+          "new_ip_address": "",
+      }
+]
 ```
