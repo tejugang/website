@@ -18,7 +18,7 @@ The system periodically checks the VMI's in the provided namespace based on the 
 - The VMI Ip Address and a New IP Address if the VMI is deleted
 - The time of the start and end of the specific status 
 - The duration the VMI had the specific status
-- The node the VMI is running on 
+- The node the VMI is running on
 
 This helps users quickly identify VMI issues and take necessary actions.
 
@@ -40,7 +40,7 @@ sudo install virtctl /usr/local/bin
 ```
 kubevirt_checks:                                      # Utilizing virt check endpoints to observe ssh ability to VMI's during chaos injection.
     interval: 2                                       # Interval in seconds to perform virt checks, default value is 2 seconds, required
-    namespace: runner                                 # Namespace where to find VMI's, required for checks to be enabled
+    namespace: runner                                 # Regex Namespace where to find VMI's, required for checks to be enabled
     name: "^windows-vm-.$"                            # Regex Name style of VMI's to watch, optional, if left blank will find all names in namespace
     only_failures: False                              # Boolean of whether to show all VMI's failures and successful ssh connection (False), or only failure status' (True) 
     disconnected: False                               # Boolean of how to try to connect to the VMIs; if True will use the ip_address to try ssh from within a node, if false will use the name and uses virtctl to try to connect  
