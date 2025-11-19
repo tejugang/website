@@ -35,6 +35,7 @@ Supported cloud supported:
 - [Alibaba](node-scenarios-krkn.md#alibaba)
 - [Docker](node-scenarios-krkn.md#docker)
 - [IBMCloud](node-scenarios-krkn.md#ibmcloud)
+- [IBMCloud Power](node-scenarios-krkn.md#ibmcloud-power)
 
 {{% alert title="Note" %}}If the node does not recover from the node_crash_scenario injection, reboot the node to get it back to Ready state. {{% /alert %}}
 
@@ -47,6 +48,7 @@ Supported cloud supported:
 - VMware
 - Alibaba
 - IbmCloud
+- IbmCloudPower
 {{% /alert %}}
 
 </krkn-hub-scenario>
