@@ -91,6 +91,34 @@ The plugin implements two recovery strategies:
 
 2. **Manual Recovery**: If automatic recovery doesn't occur within the timeout period, the plugin will attempt to manually recreate the VMI using the saved state from before the deletion.
 
+## Recovery Time Metrics in Krkn Telemetry
+
+Krkn tracks three key recovery time metrics for each affected VMI:
+
+1. **pod_rescheduling_time** - The time (in seconds) that the Kubernetes cluster took to reschedule the VMI after it was deleted. This measures the cluster's scheduling efficiency and includes the time from VMI deletion until the replacement VMI is scheduled on a node.
+
+2. **pod_readiness_time** - The time (in seconds) the VMI took to become ready after being scheduled. This measures VMI startup time, including container image pulls, VM boot process, and readiness probe success.
+
+3. **total_recovery_time** - The total amount of time (in seconds) from VMI deletion until the replacement VMI became fully ready and available. This is the sum of rescheduling time and readiness time.
+
+These metrics appear in the telemetry output under `PodsStatus.recovered` for successfully recovered VMIs. VMIs that fail to recover within the timeout period appear under `PodsStatus.unrecovered` without timing data.
+
+**Example telemetry output:**
+```json
+{
+  "recovered": [
+    {
+      "pod_name": "virt-launcher-fedora-vm-xyz",
+      "namespace": "default",
+      "pod_rescheduling_time": 3.2,
+      "pod_readiness_time": 12.5,
+      "total_recovery_time": 15.7
+    }
+  ],
+  "unrecovered": []
+}
+```
+
 ## Rollback Scenario Support
 
 Krkn supports rollback for KubeVirt VM Outage Scenario. For more details, please refer to the [Rollback Scenarios](../../rollback-scenarios/_index.md) documentation.
