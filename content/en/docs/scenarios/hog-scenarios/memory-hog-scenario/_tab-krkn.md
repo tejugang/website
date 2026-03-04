@@ -21,6 +21,32 @@ kraken:
         - hog_scenarios:
             - scenarios/kube/memory-hog.yml
 ```
+
+{{% alert title="Note" %}}
+You can specify multiple scenario files of the same type by adding additional paths to the list:
+```yaml
+kraken:
+    chaos_scenarios:
+        - hog_scenarios:
+            - scenarios/kube/memory-hog-1.yml
+            - scenarios/kube/memory-hog-2.yml
+            - scenarios/kube/memory-hog-3.yml
+```
+
+You can also combine multiple different scenario types in the same config.yaml file. Scenario types can be specified in any order, and you can include the same scenario type multiple times:
+```yaml
+kraken:
+    chaos_scenarios:
+        - hog_scenarios:
+            - scenarios/kube/memory-hog.yml
+        - pod_disruption_scenarios:
+            - scenarios/pod-kill.yaml
+        - node_scenarios:
+            - scenarios/node-reboot.yaml
+        - hog_scenarios:  # Same type can appear multiple times
+            - scenarios/kube/memory-hog-2.yml
+```
+{{% /alert %}}
 ### Run 
 
 ```bash

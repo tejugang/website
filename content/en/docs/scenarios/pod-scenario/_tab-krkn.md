@@ -8,6 +8,33 @@ kraken:
       - path/to/scenario.yaml
 ```
 
+{{% alert title="Note" %}}
+You can specify multiple scenario files of the same type by adding additional paths to the list:
+```yaml
+kraken:
+  chaos_scenarios:
+    - pod_disruption_scenarios:
+      - path/to/scenario1.yaml
+      - path/to/scenario2.yaml
+      - path/to/scenario3.yaml
+```
+
+You can also combine multiple different scenario types in the same config.yaml file. Scenario types can be specified in any order, and you can include the same scenario type multiple times:
+```yaml
+kraken:
+  chaos_scenarios:
+    - pod_disruption_scenarios:
+      - scenarios/pod-kill.yaml
+      - scenarios/etcd-kill.yaml
+    - container_scenarios:
+      - scenarios/container-kill.yaml
+    - node_scenarios:
+      - scenarios/node-reboot.yaml
+    - pod_disruption_scenarios:  # Same type can appear multiple times
+      - scenarios/pod-kill-2.yaml
+```
+{{% /alert %}}
+
 You can then create the scenario file with the following contents:
 
 ```yaml

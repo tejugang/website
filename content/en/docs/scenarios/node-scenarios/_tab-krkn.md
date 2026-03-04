@@ -1,13 +1,39 @@
 
-For any of the node scenarios, you'll specify `node_scenarios` as the scenario type. 
+For any of the node scenarios, you'll specify `node_scenarios` as the scenario type.
 
-See example config here: 
+See example config here:
 ```yaml
     chaos_scenarios:
         - node_scenarios: # List of chaos node scenarios to load
             - scenarios/***.yml
             - scenarios/***.yml # Can specify multiple files here
 ```
+
+{{% alert title="Note" %}}
+You can specify multiple scenario files of the same type by adding additional paths to the list:
+```yaml
+kraken:
+    chaos_scenarios:
+        - node_scenarios:
+            - scenarios/node-reboot.yaml
+            - scenarios/node-stop-start.yaml
+            - scenarios/node-network.yaml
+```
+
+You can also combine multiple different scenario types in the same config.yaml file. Scenario types can be specified in any order, and you can include the same scenario type multiple times:
+```yaml
+kraken:
+    chaos_scenarios:
+        - node_scenarios:
+            - scenarios/node-reboot.yaml
+        - pod_disruption_scenarios:
+            - scenarios/pod-kill.yaml
+        - container_scenarios:
+            - scenarios/container-kill.yaml
+        - node_scenarios:  # Same type can appear multiple times
+            - scenarios/node-stop-start.yaml
+```
+{{% /alert %}}
 
 Sample scenario file, you are able to specify multiple list items under node_scenarios that will be ran serially
 ```yaml

@@ -100,6 +100,32 @@ kraken:
         -  kubevirt_vm_outage:
                - scenarios/kubevirt/kubevirt-vm-outage.yaml
 ```
+
+{{% alert title="Note" %}}
+You can specify multiple scenario files of the same type by adding additional paths to the list:
+```yaml
+kraken:
+    chaos_scenarios:
+        - kubevirt_vm_outage:
+            - scenarios/kubevirt/kubevirt-vm-outage-1.yaml
+            - scenarios/kubevirt/kubevirt-vm-outage-2.yaml
+            - scenarios/kubevirt/kubevirt-vm-outage-3.yaml
+```
+
+You can also combine multiple different scenario types in the same config.yaml file. Scenario types can be specified in any order, and you can include the same scenario type multiple times:
+```yaml
+kraken:
+    chaos_scenarios:
+        - kubevirt_vm_outage:
+            - scenarios/kubevirt/kubevirt-vm-outage.yaml
+        - pod_disruption_scenarios:
+            - scenarios/pod-kill.yaml
+        - node_scenarios:
+            - scenarios/node-reboot.yaml
+        - kubevirt_vm_outage:  # Same type can appear multiple times
+            - scenarios/kubevirt/kubevirt-vm-outage-2.yaml
+```
+{{% /alert %}}
 ### Run 
 
 ```bash
