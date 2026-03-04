@@ -40,13 +40,13 @@ $ docker inspect <container-name or container-id> \
 The following environment variables can be set on the host running the container to tweak the scenario/faults being injected:
 
 Example if --env-host is used:
-```
+```bash
 export <parameter_name>=<value>
 ```
-OR on the command line like example: 
+OR on the command line like example:
 
-```
--e <VARIABLE>=<value> 
+```bash
+-e <VARIABLE>=<value>
 ```
 
 {{% alert title="Note" %}} `export TRAFFIC_TYPE=egress` for Egress scenarios and `export TRAFFIC_TYPE=ingress` for Ingress scenarios{{% /alert %}}

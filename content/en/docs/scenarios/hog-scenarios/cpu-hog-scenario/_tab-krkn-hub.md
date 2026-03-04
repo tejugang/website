@@ -47,13 +47,13 @@ $ docker inspect <container-name or container-id> \
 The following environment variables can be set on the host running the container to tweak the scenario/faults being injected:
 
 Example if --env-host is used:
-```
+```bash
 export <parameter_name>=<value>
 ```
-OR on the command line like example: 
+OR on the command line like example:
 
-```
--e <VARIABLE>=<value> 
+```bash
+-e <VARIABLE>=<value>
 ```
 
 See list of variables that apply to all scenarios [here](/docs/scenarios/all-scenario-env.md) that can be used/set in addition to these scenario specific variables

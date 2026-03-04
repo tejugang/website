@@ -48,13 +48,13 @@ $ docker inspect <container-name or container-id> \
 The following environment variables can be set on the host running the container to tweak the scenario/faults being injected:
 
 Example if --env-host is used:
-```
+```bash
 export <parameter_name>=<value>
 ```
-OR on the command line like example: 
+OR on the command line like example:
 
-```
--e <VARIABLE>=<value> 
+```bash
+-e <VARIABLE>=<value>
 ```
 
 If both `PVC_NAME` and `POD_NAME` are defined, `POD_NAME` value will be overridden from the `Mounted By:` value on PVC definition.

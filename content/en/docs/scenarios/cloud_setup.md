@@ -34,11 +34,15 @@ After creating the service account you will need to enable the account using the
 
 In krkn-hub, you'll need to both set the environemnt variable and also copy the file to the local container
 
-`-e GOOGLE_APPLICATION_CREDENTIALS=<container_creds_file>`
+```
+-e GOOGLE_APPLICATION_CREDENTIALS=<container_creds_file>
+```
 
 
 Nees to match above file path 
-`-v <local_gcp_creds_file>:<container_creds_file>:Z`
+```
+-v <local_gcp_creds_file>:<container_creds_file>:Z
+```
 
 Example: 
 ```bash

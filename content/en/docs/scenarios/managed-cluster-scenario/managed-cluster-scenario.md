@@ -20,7 +20,7 @@ The following ManagedCluster chaos scenarios are supported:
 
 ManagedCluster scenarios can be injected by placing the ManagedCluster scenarios config files under `managedcluster_scenarios` option in the Kraken config. Refer to [managedcluster_scenarios_example](https://github.com/redhat-chaos/krkn/blob/main/scenarios/kube/managedcluster_scenarios_example.yml) config file.
 
-```
+```yaml
 managedcluster_scenarios:
   - actions:                                                        # ManagedCluster chaos scenarios to be injected
     - managedcluster_stop_start_scenario

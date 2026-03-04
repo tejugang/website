@@ -103,19 +103,19 @@ roleRef:
    - Replace `krkn-namespace` with the namespace where Krkn itself is deployed
 
 2. Create a service account for Krkn:
-   ```bash
-   kubectl create serviceaccount krkn-sa -n <namespace>
+```bash
+kubectl create serviceaccount krkn-sa -n <namespace>
 ```
 
 3. Apply the RBAC configuration:
-   ```bash
-   # For ns-privileged access
-   kubectl apply -f rbac/ns-privileged-role.yaml
-   kubectl apply -f rbac/ns-privileged-rolebinding.yaml
-   
-   # For privileged access
-   kubectl apply -f rbac/privileged-clusterrole.yaml
-   kubectl apply -f rbac/privileged-clusterrolebinding.yaml
+```bash
+# For ns-privileged access
+kubectl apply -f rbac/ns-privileged-role.yaml
+kubectl apply -f rbac/ns-privileged-rolebinding.yaml
+
+# For privileged access
+kubectl apply -f rbac/privileged-clusterrole.yaml
+kubectl apply -f rbac/privileged-clusterrolebinding.yaml
 ```
 
 ## OpenShift-specific Configuration
@@ -150,6 +150,6 @@ The following table lists the available Krkn scenarios and their required RBAC p
 | zone_outages_scenarios | Cluster | Privileged | Scenarios that simulate zone outages |
 
 **_NOTE:_** Grant the privileged SCC to the user running the pod, to execute all the below krkn testscenarios
-```
+```bash
 oc adm policy add-scc-to-user privileged user1
 ```

@@ -43,12 +43,19 @@ $ docker inspect <container-name or container-id> \
 ```
 
 {{% alert title="Tip" %}} ecause the container runs with a non-root user, ensure the kube config is globally readable before mounting it in the container. You can achieve this with the following commands:
-```kubectl config view --flatten > ~/kubeconfig && chmod 444 ~/kubeconfig && docker run $(./get_docker_params.sh) --name=<container_name> --net=host --pull=always -v ~kubeconfig:/home/krkn/.kube/config:Z -d containers.krkn-chaos.dev/krkn-chaos/krkn-hub:<scenario>``` {{% /alert %}}
+```bash
+kubectl config view --flatten > ~/kubeconfig && chmod 444 ~/kubeconfig && docker run $(./get_docker_params.sh) --name=<container_name> --net=host --pull=always -v ~kubeconfig:/home/krkn/.kube/config:Z -d containers.krkn-chaos.dev/krkn-chaos/krkn-hub:<scenario>
+```
+
+{{% /alert %}}
+
 #### Supported parameters
 
 The following environment variables can be set on the host running the container to tweak the scenario/faults being injected:
-example: 
-`export <parameter_name>=<value>`
+example:
+```bash
+export <parameter_name>=<value>
+```
 
 See list of variables that apply to all scenarios [here](all_scenarios_env.md) that can be used/set in addition to these scenario specific variables
 
@@ -60,7 +67,7 @@ See list of variables that apply to all scenarios [here](all_scenarios_env.md) t
 A sample scenario file can be found [here](service-hijacking-scenarios-krkn.md#sample-scenario), you'll need to customize it based on your wanted response codes for API calls
 
 {{% alert title="Note" %}}In case of using custom metrics profile or alerts profile when `CAPTURE_METRICS` or `ENABLE_ALERTS` is enabled, mount the metrics profile from the host on which the container is run using podman/docker under `/home/krkn/kraken/config/metrics-aggregated.yaml` and `/home/krkn/kraken/config/alerts`. {{% /alert %}}
- For example:
+For example:
 ```bash
 $ podman run -e SCENARIO_BASE64="$(base64 -w0 <scenario_file>)" \
              --name=<container_name> \

@@ -35,7 +35,11 @@ $ docker inspect <container-name or container-id> \
   --format "{{.State.ExitCode}}" # Outputs exit code which can considered as pass/fail for the scenario
 ```
 {{% alert title="Tip" %}} Because the container runs with a non-root user, ensure the kube config is globally readable before mounting it in the container. You can achieve this with the following commands:
-```kubectl config view --flatten > ~/kubeconfig && chmod 444 ~/kubeconfig && docker run $(./get_docker_params.sh) --name=<container_name> --net=host -v ~kubeconfig:/home/krkn/.kube/config:Z -d containers.krkn-chaos.dev/krkn-chaos/krkn-hub:<scenario>``` {{% /alert %}}
+```bash
+kubectl config view --flatten > ~/kubeconfig && chmod 444 ~/kubeconfig && docker run $(./get_docker_params.sh) --name=<container_name> --net=host -v ~kubeconfig:/home/krkn/.kube/config:Z -d containers.krkn-chaos.dev/krkn-chaos/krkn-hub:<scenario>
+```
+
+{{% /alert %}}
 
 
 #### Supported parameters
@@ -43,13 +47,13 @@ $ docker inspect <container-name or container-id> \
 The following environment variables can be set on the host running the container to tweak the scenario/faults being injected:
 
 Example if --env-host is used:
-```
+```bash
 export <parameter_name>=<value>
 ```
-OR on the command line like example: 
+OR on the command line like example:
 
-```
--e <VARIABLE>=<value> 
+```bash
+-e <VARIABLE>=<value>
 ```
 
 See list of variables that apply to all scenarios [here](../all-scenario-env.md) that can be used/set in addition to these scenario specific variables

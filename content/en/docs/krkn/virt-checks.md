@@ -37,7 +37,7 @@ sudo install virtctl /usr/local/bin
 ```
 
 #### Sample health check config
-```
+```yaml
 kubevirt_checks:                                      # Utilizing virt check endpoints to observe ssh ability to VMI's during chaos injection.
     interval: 2                                       # Interval in seconds to perform virt checks, default value is 2 seconds, required
     namespace: runner                                 # Regex Namespace where to find VMI's, required for checks to be enabled
@@ -86,7 +86,7 @@ After all scenarios have finished executing, krkn will perform a final check on 
 Notice here that the vm with name windows-vm-1 had a false status (not able to form an ssh connection), for the first 37 seconds (the first item in the list). And at the end of the run the vm was able to for the ssh connection and reports true status for 41 seconds. While the vm with name windows-vm-0 has a true status the whole length of the chaos run (~88 seconds).
 
 
-```
+```json
 "virt_checks": [
       {
           "node_name": "000-000",
