@@ -15,7 +15,7 @@ Krkn is designed for the following user roles:
 
 
 ### Workflow
-![Krkn workflow](images/kraken-workflow.png)
+![Krkn workflow](/images/kraken-workflow.png)
 
 ### How to Get Started
 Instructions on how to setup, configure and run Krkn can be found at [Installation](../installation/_index.md).
@@ -78,7 +78,7 @@ We gather some basic details of the cluster configuration and scenarios ran as p
 
 ### OCM / ACM integration
 
-Krkn supports injecting faults into [Open Cluster Management (OCM)](https://open-cluster-management.io/) and [Red Hat Advanced Cluster Management for Kubernetes (ACM)](https://www.krkn.com/en/technologies/management/advanced-cluster-management) managed clusters through [ManagedCluster Scenarios](..//managedcluster_scenarios.md).
+Krkn supports injecting faults into [Open Cluster Management (OCM)](https://open-cluster-management.io/) and [Red Hat Advanced Cluster Management for Kubernetes (ACM)](https://www.redhat.com/en/technologies/management/advanced-cluster-management) managed clusters through [ManagedCluster Scenarios](..//managedcluster_scenarios.md).
 
 ## Where should I go next?
 

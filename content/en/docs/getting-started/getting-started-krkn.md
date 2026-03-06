@@ -10,7 +10,7 @@ tags: [docs]
 ## Getting Started Running Chaos Scenarios
 
 ## Config
-Instructions on how to setup the config and all the available options supported can be found at [Config](docs/config.md).
+Instructions on how to setup the config and all the available options supported can be found at [Config](../krkn/config.md).
 
 In all the examples below you'll replace the `scenario_type` with the scenario plugin type that can be found in the [second column here](../scenarios/_index.md)
 

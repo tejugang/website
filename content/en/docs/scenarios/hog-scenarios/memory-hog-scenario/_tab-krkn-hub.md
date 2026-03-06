@@ -1,4 +1,4 @@
-This scenario hogs the memory on the specified node on a Kubernetes/OpenShift cluster for a specified duration. For more information refer the following [documentation](/docs/scenarios/memory-hog-scenario/_index.md).
+This scenario hogs the memory on the specified node on a Kubernetes/OpenShift cluster for a specified duration. For more information refer the following [documentation](/docs/scenarios/hog-scenarios/memory-hog-scenario/).
 
 #### Run
 

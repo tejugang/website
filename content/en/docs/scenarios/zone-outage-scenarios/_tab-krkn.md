@@ -1,4 +1,4 @@
-Zone outage can be injected by placing the zone_outage config file under zone_outages option in the [kraken config](https://github.com/redhat-chaos/krkn/blob/main/config/config.yaml). Refer to [zone_outage_scenario](https://github.com/redhat-chaos/krkn/blob/main/scenarios/zone_outage.yaml) config file for the parameters that need to be defined.
+Zone outage can be injected by placing the zone_outage config file under zone_outages option in the [kraken config](https://github.com/redhat-chaos/krkn/blob/main/config/config.yaml). Refer to [zone_outage_scenario](https://github.com/krkn-chaos/krkn/blob/main/scenarios/openshift/zone_outage.yaml) config file for the parameters that need to be defined.
 
 Refer to [cloud setup](/docs/scenarios/cloud_setup.md) to configure your cli properly for the cloud provider of the cluster you want to run zone outages on
 

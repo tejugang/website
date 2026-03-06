@@ -1,6 +1,6 @@
 ### Syn Flood scenario
 This scenario simulates a user-defined surge of TCP SYN requests directed at one or more services deployed within the cluster or an external target reachable by the cluster.
-For more details, please refer to the following [documentation](https://github.com/krkn-chaos/krkn/blob/main/docs/syn_flood_scenarios.md).
+For more details, please refer to the following [documentation](https://github.com/krkn-chaos/krkn-hub/blob/main/docs/syn-flood.md).
 
 #### Run
 If enabling [Cerberus](https://github.com/krkn-chaos/krkn#kraken-scenario-passfail-criteria-and-report) to monitor the cluster and pass/fail the scenario post chaos, refer [docs](https://github.com/redhat-chaos/krkn-hub/tree/main/docs/cerberus.md). Make sure to start it before injecting the chaos and set `CERBERUS_ENABLED` environment variable for the chaos injection container to autoconnect.
@@ -75,7 +75,7 @@ OR on the command line like example:
 -e <VARIABLE>=<value>
 ```
 
-See list of variables that apply to all scenarios [here](all_scenarios_env.md) that can be used/set in addition to these scenario specific variables
+See list of variables that apply to all scenarios [here](/docs/scenarios/all-scenario-env.md) that can be used/set in addition to these scenario specific variables
 
 
 |Parameter | Description           | Default |

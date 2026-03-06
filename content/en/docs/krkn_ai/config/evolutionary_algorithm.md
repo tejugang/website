@@ -6,7 +6,7 @@ weight: 1
 
 Krkn-AI uses an online learning approach by leveraging an evolutionary algorithm, where an agent runs tests on the actual cluster and gathers feedback by measuring various KPIs for your cluster and application. The algorithm begins by creating random population samples that contain Chaos scenarios. These scenarios are executed on the cluster, feedback is collected, and then the best samples (parents) are selected to undergo crossover and mutation operations to generate the next set of samples (offspring). The algorithm relies on heuristics to guide the exploration and exploitation of scenarios.
 
-![Genetic Algorithm](images/krkn-ai-genetic-algorithm.jpg)
+![Genetic Algorithm](/images/krkn-ai-genetic-algorithm.jpg)
 
 ### Terminologies
 

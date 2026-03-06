@@ -4,8 +4,8 @@ description: Krkn CLI tool
 weight: 2
 ---
 
-`Krknctl` is a tool designed to run and orchestrate [krkn](krkn.md) chaos scenarios utilizing 
-container images from the [krkn-hub](krkn-hub.md). 
+`Krknctl` is a tool designed to run and orchestrate [krkn](../krkn/) chaos scenarios utilizing
+container images from the [krkn-hub](../krkn-hub.md).
 Its primary objective is to streamline the usage of `krkn` by providing features like:
 
 - Command auto-completion

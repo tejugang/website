@@ -25,7 +25,7 @@ DAEMON_MODE             | Iterations are set to infinity which means that the kr
 PUBLISH_KRAKEN_STATUS              | If you want                         | True                                    |
 SIGNAL_ADDRESS              | Address to print kraken status to                          | 0.0.0.0                                    |
 PORT              | Port to print kraken status to                             | 8081                                    |         |
-SIGNAL_STATE      | Waits for the RUN signal when set to PAUSE before running the scenarios, refer [docs](https://github.com/krkn-chaos/krkn/blob/master/docs/signal.md) for more details | RUN |
+SIGNAL_STATE      | Waits for the RUN signal when set to PAUSE before running the scenarios, refer [docs](../krkn/signal.md) for more details | RUN |
 DEPLOY_DASHBOARDS | Deploys mutable grafana loaded with dashboards visualizing performance metrics pulled from in-cluster prometheus. The dashboard will be exposed as a route. | False |
 CAPTURE_METRICS   | Captures metrics as specified in the profile from in-cluster prometheus. Default metrics captures are listed [here](https://github.com/krkn-chaos/krkn/blob/master/config/metrics-aggregated.yaml) | False |
 ENABLE_ALERTS     | Evaluates expressions from in-cluster prometheus and exits 0 or 1 based on the severity set. [Default profile](https://github.com/krkn-chaos/krkn/blob/master/config/alerts.yaml). | False |

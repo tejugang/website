@@ -60,7 +60,7 @@ See list of variables that apply to all scenarios [here](/docs/scenarios/all-sce
 
 Parameter               | Description                                                           | Default
 ----------------------- | -----------------------------------------------------------------     | ------------------------------------ |
-CLOUD_TYPE              | Cloud platform on top of which cluster is running, [supported cloud platforms](docs/scenarios/cloud_setup.md)                     | aws or gcp |
+CLOUD_TYPE              | Cloud platform on top of which cluster is running, [supported cloud platforms](/docs/scenarios/cloud_setup.md)                     | aws or gcp |
 DURATION                | Duration in seconds after which the zone will be back online          | 600                                  |
 VPC_ID                  | cluster virtual private network to target ( REQUIRED for AWS )                             | ""                                   |
 SUBNET_ID               | subnet-id to deny both ingress and egress traffic ( REQUIRED for AWS ). Format: [subenet1, subnet2]                    | ""                                   |

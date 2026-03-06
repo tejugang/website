@@ -59,7 +59,7 @@ See list of variables that apply to all scenarios [here](/docs/scenarios/all-sce
 Parameter               | Description                                                           | Default
 ----------------------- | -----------------------------------------------------------------     | ------------------------------------ |
 SHUTDOWN_DURATION       | Duration in seconds to shut down the cluster                          | 1200                                 |
-CLOUD_TYPE              | Cloud platform on top of which cluster is running, [supported cloud platforms](https://github.com/krkn-chaos/krkn/blob/master/docs/node_scenarios.md)                     | aws |
+CLOUD_TYPE              | Cloud platform on top of which cluster is running, [supported cloud platforms](/docs/scenarios/node-scenarios/)                     | aws |
 TIMEOUT                 | Time in seconds to wait for each node to be stopped or running after the cluster comes back | 600                                |
 
 

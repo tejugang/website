@@ -12,7 +12,7 @@
 
 **object_name:** List of the names of pods or nodes you want to skew.
 
-Refer to [time_scenarios_example](https://github.com/krkn-chaos/krkn/blob/main/scenarios/time_scenarios_example.yml) config file.
+Refer to [time_scenarios_example](https://github.com/krkn-chaos/krkn/blob/main/scenarios/openshift/time_scenarios_example.yml) config file.
 
 ```yaml
 time_scenarios:

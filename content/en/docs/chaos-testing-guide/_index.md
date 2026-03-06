@@ -130,18 +130,18 @@ Let us take a look at how to run the chaos scenarios on your Kubernetes clusters
     - The nodes are stopped in parallel to mimic a power outage i.e., pulling off the plug
   - [Demo](https://asciinema.org/a/r0zLbh70XK7gnc4s5v0ZzSXGo)
 
-- Resource Hog ([Documentation](../scenarios/arcaflow-scenarios))
+- Resource Hog ([Documentation](../scenarios/hog-scenarios/))
   - Hogs CPU, Memory and IO on the targeted nodes
     - Helps understand if the application/system components have reserved resources to not get disrupted because of rogue applications, or get performance throttled.
-      - CPU Hog ([Documentation](../scenarios/arcaflow-scenarios), [Demo](https://asciinema.org/a/452762))
-      - Memory Hog ([Documentation](../scenarios/arcaflow-scenarios), [Demo](https://asciinema.org/a/452742?speed=3&theme=solarized-dark))
+      - CPU Hog ([Documentation](../scenarios/hog-scenarios/), [Demo](https://asciinema.org/a/452762))
+      - Memory Hog ([Documentation](../scenarios/hog-scenarios/), [Demo](https://asciinema.org/a/452742?speed=3&theme=solarized-dark))
 
 - Time Skewing ([Documentation](../scenarios/time-scenarios))
   - Manipulate the system time and/or date of specific pods/nodes.
     - Verify scheduling of objects so they continue to work.
     - Verify time gets reset properly.
 
-- Namespace Failures ([Documentation](https://github.com/redhat-chaos/krkn-hub/blob/main/docs/namespace-scenarios.md))
+- Namespace Failures ([Documentation](https://github.com/krkn-chaos/krkn-hub/blob/main/docs/service-disruption-scenarios.md))
   - Delete namespaces for the specified duration.
     - Helps understand the impact on other components and tests/improves recovery time of the components in the targeted namespace.
 

@@ -6,13 +6,13 @@ weight: 2
 ---
 
 ### Node Scenarios Bare Metal
-This scenario disrupts the node(s) matching the label on a bare metal Kubernetes/OpenShift cluster. Actions/disruptions supported are listed [here](https://github.com/krkn-chaos/krkn/blob/master/docs/node_scenarios.md)
+This scenario disrupts the node(s) matching the label on a bare metal Kubernetes/OpenShift cluster. Actions/disruptions supported are listed [here](./_index.md)
 
 #### Run
 Unlike other krkn-hub scenarios, this one requires a specific configuration due to its unique structure. 
 You must set up the scenario in a local file following the [scenario syntax](https://github.com/krkn-chaos/krkn/blob/main/scenarios/openshift/baremetal_node_scenarios.yml), and then pass this file's base64-encoded content to the container via the SCENARIO_BASE64 variable.
 
-If enabling Cerberus to monitor the cluster and pass/fail the scenario post chaos, refer [docs](https://krkn-chaos.dev/docs/cerberus/installation/). Make sure to start it before injecting the chaos and set `CERBERUS_ENABLED` environment variable for the chaos injection container to autoconnect.
+If enabling Cerberus to monitor the cluster and pass/fail the scenario post chaos, refer [docs](../../cerberus/installation.md). Make sure to start it before injecting the chaos and set `CERBERUS_ENABLED` environment variable for the chaos injection container to autoconnect.
 
 ```bash
 $ podman run --name=<container_name> --net=host --pull=always \

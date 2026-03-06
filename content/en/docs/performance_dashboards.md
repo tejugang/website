@@ -47,11 +47,11 @@ If you don't have elasticsearch or prometheus installed on your cluster, you can
 - OVN 
 - and Krkn Dashboards
 
-![Api performance dashboard](images/api-performance.png)
+![Api performance dashboard](/images/api-performance.png)
 
 
 ## K8s Dashboards
 - General K8s Performance
 - and Krkn Dashboards
 
-![K8s performance dashboard](images/k8s-performance.png)
+![K8s performance dashboard](/images/k8s-performance.png)

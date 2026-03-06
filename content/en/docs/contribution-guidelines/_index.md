@@ -25,7 +25,7 @@ Please start by discussing potential solutions and your proposed approach for th
 We are always looking for new scenarios to make krkn better and more usable for our chaos community. If you have any ideas, please first open an issue to explain the new scenario you are wanting to add. We will review and respond with ideas of how to get started. 
 
 If adding a new scenario or tweaking the main config, be sure to add in updates into the CI to be sure the CI is up to date.
-Please read [this file](https://krkn-chaos.dev/docs/getting-started/#adding-new-scenarios) for more information on updates.
+Please read [this file](../developers-guide/) for more information on updates.
 
 #### Scenario Plugin Development
 

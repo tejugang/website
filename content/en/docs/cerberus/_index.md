@@ -11,7 +11,7 @@ Guardian of Kubernetes and OpenShift Clusters
 Cerberus watches the Kubernetes/OpenShift clusters for dead nodes, system component failures/health and exposes a go or no-go signal which can be consumed by other workload generators or applications in the cluster and act accordingly.
 
 ### Workflow
-![Cerberus workflow](images/cerberus-workflow.png)
+![Cerberus workflow](/images/cerberus-workflow.png)
 
 
 ### Installation
@@ -24,14 +24,14 @@ Following are the components of Kubernetes/OpenShift that Cerberus can monitor t
 
 Component                            | Description                                                                                                      | Working
 -----------------------------------  | ---------------------------------------------------------------------------------------------------------------- | ------------------------- |
-Nodes                                | Watches all the nodes including masters, workers as well as nodes created using custom MachineSets               | :heavy_check_mark:        |
-Namespaces                           | Watches all the pods including containers running inside the pods in the namespaces specified in the config      | :heavy_check_mark:        |
-Cluster Operators                    | Watches all Cluster Operators                                                                                    | :heavy_check_mark:        |
-Masters Schedulability               | Watches and warns if masters nodes are marked as schedulable                                                     | :heavy_check_mark:        |
-Routes                               | Watches specified routes                                                                                         | :heavy_check_mark:        |
-CSRs                                 | Warns if any CSRs are not approved                                                                               | :heavy_check_mark:        |
-Critical Alerts                      | Warns the user on observing abnormal behavior which might affect the health of the cluster                       | :heavy_check_mark:        |
-Bring your own checks                | Users can bring their own checks and Cerberus runs and includes them in the reporting as well as go/no-go signal | :heavy_check_mark:        |
+Nodes                                | Watches all the nodes including masters, workers as well as nodes created using custom MachineSets               | ✔️        |
+Namespaces                           | Watches all the pods including containers running inside the pods in the namespaces specified in the config      | ✔️        |
+Cluster Operators                    | Watches all Cluster Operators                                                                                    | ✔️        |
+Masters Schedulability               | Watches and warns if masters nodes are marked as schedulable                                                     | ✔️        |
+Routes                               | Watches specified routes                                                                                         | ✔️        |
+CSRs                                 | Warns if any CSRs are not approved                                                                               | ✔️        |
+Critical Alerts                      | Warns the user on observing abnormal behavior which might affect the health of the cluster                       | ✔️        |
+Bring your own checks                | Users can bring their own checks and Cerberus runs and includes them in the reporting as well as go/no-go signal | ✔️        |
 
 An explanation of all the components that Cerberus can monitor are explained [here](config.md)
 
@@ -42,7 +42,7 @@ Cerberus exposes the cluster health and failures through a go/no-go signal, repo
 When the cerberus is configured to run in the daemon mode, it will continuously monitor the components specified, runs a light weight http server at http://0.0.0.0:8080 and publishes the signal i.e True or False depending on the components status. The tools can consume the signal and act accordingly.
 
 #### Report
-The report is generated in the run directory and it contains the information about each check/monitored component status per iteration with timestamps. It also displays information about the components in case of failure. Refer [report](/example_report.md) for example.
+The report is generated in the run directory and it contains the information about each check/monitored component status per iteration with timestamps. It also displays information about the components in case of failure. Refer [report](example_report.md) for example.
 
 You can use the "-o <file_path_name>" option to change the location of the created report
 

@@ -21,7 +21,7 @@
   taints: []
 ```
 
-for the common module settings please refer to the [documentation](docs/scenarios/network-chaos-ng-scenarios/network-chaos-ng-scenarios-api/#basenetworkchaosconfig-base-module-configuration).
+for the common module settings please refer to the [documentation](/docs/scenarios/network-chaos-ng-scenarios/network-chaos-ng-scenario-api/#basenetworkchaosconfig-base-module-configuration).
 
 - `ingress`: filters the incoming traffic on one or more ports. If set one or more network interfaces must be specified
 - `egress` : filters the outgoing traffic on one or more ports.

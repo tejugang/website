@@ -66,7 +66,7 @@ Various assumptions led to a number of outages in production environments in the
 
 The Krkn Core orchestrates chaos scenarios outside from the cluster interacting with cluster APIs and collecting metrics
 
-![Krkn workflow](images/kraken-workflow.png)
+![Krkn workflow](/images/kraken-workflow.png)
 
 Krkn-lib methods and classes are used by the Krkn core to execute actions and interact with cluster APIs.
 
@@ -181,7 +181,7 @@ The Krkn security policy is maintained in the SECURITY.md file and can be quickl
 
 ### Responsible Disclosure Practice
 
-The Krkn project accepts vulnerability reports exclusively through [GitHub Vulnerability Reporting](https//docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability) tool.
+The Krkn project accepts vulnerability reports exclusively through [GitHub Vulnerability Reporting](https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability) tool.
 
 Anyone can submit a report by using the dedicated [reporting form](https://github.com/krkn-chaos/krkn/security/advisories/new) within the GitHub repository. Once a report is received, a maintainer will collaborate directly with the reporter via the Security Advisory until the issue is resolved.
 

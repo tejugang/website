@@ -1,4 +1,4 @@
-This scenario hogs the IO on the specified node on a Kubernetes/OpenShift cluster for a specified duration. For more information refer the following [documentation](/docs/scenarios/io-hog-scenario/_index.md).
+This scenario hogs the IO on the specified node on a Kubernetes/OpenShift cluster for a specified duration. For more information refer the following [documentation](/docs/scenarios/hog-scenarios/io-hog-scenario/).
 
 #### Run
 

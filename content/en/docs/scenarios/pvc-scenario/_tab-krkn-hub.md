@@ -60,7 +60,7 @@ OR on the command line like example:
 If both `PVC_NAME` and `POD_NAME` are defined, `POD_NAME` value will be overridden from the `Mounted By:` value on PVC definition.
 
 
-See list of variables that apply to all scenarios [here](all_scenarios_env.md) that can be used/set in addition to these scenario specific variables
+See list of variables that apply to all scenarios [here](/docs/scenarios/all-scenario-env.md) that can be used/set in addition to these scenario specific variables
 
 Parameter               | Description                                                                     | Default
 ----------------------- | -----------------------------------------------------------------               | ------------------------------------ |
