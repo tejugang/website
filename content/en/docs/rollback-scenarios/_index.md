@@ -49,66 +49,73 @@ Krkn supports rollback for the following scenarios.
 
 Krkn provides `list-rollback` and `execute-rollback` commands for managing rollback operations.
 
+### list-rollback
 - `list-rollback`: List rollback version files in a tree-like format
     - `-r RUN_UUID, --run_uuid=RUN_UUID` Flag: **Optional**. Specify the Run UUID to filter the list of rollback version files.
     - `-s SCENARIO_TYPE, --scenario_type=SCENARIO_TYPE` Flag: **Optional**. Specify the Scenario Type to filter the list of rollback version files.
-    - Example Usage:
-        ```bash
-        # Without filtering
-        python run_kraken.py list-rollback --config config/config.yaml
 
-        # With filtering by Run UUID
-        python run_kraken.py list-rollback --config config/config.yaml -r <run_uuid>
+Example Usage:
+```bash
+# Without filtering
+python run_kraken.py list-rollback --config config/config.yaml
 
-        # With filtering by Scenario Type
-        python run_kraken.py list-rollback --config config/config.yaml -s <scenario_type>
+# With filtering by Run UUID
+python run_kraken.py list-rollback --config config/config.yaml -r <run_uuid>
 
-        # With filtering by both Run UUID and Scenario Type
-        python run_kraken.py list-rollback --config config/config.yaml -r <run_uuid> -s <scenario_type>
+# With filtering by Scenario Type
+python run_kraken.py list-rollback --config config/config.yaml -s <scenario_type>
+
+# With filtering by both Run UUID and Scenario Type
+python run_kraken.py list-rollback --config config/config.yaml -r <run_uuid> -s <scenario_type>
 ```
-    - Example Output:
-        ```bash
-        /tmp/kraken-rollback/
-        ├── 1755488223093251000-168dce4c-fdb4-4e8c-aa5b-7f919777801b
-        │   └── network_chaos_scenarios_1755488221668750000_fphcbojh.py
-        ├── 1755496143932815000-7d32bf81-2c0d-4d56-b75b-b0702b2c45f9
-        │   └── network_chaos_ng_scenarios_1755496142436906000_btmcxrri.py
-        └── 1755523261039221000-0ddd9f07-bcd8-47bc-bf89-f9c4f2503ead
+
+Example Output:
+```bash
+/tmp/kraken-rollback/
+├── 1755488223093251000-168dce4c-fdb4-4e8c-aa5b-7f919777801b
+│   └── network_chaos_scenarios_1755488221668750000_fphcbojh.py
+├── 1755496143932815000-7d32bf81-2c0d-4d56-b75b-b0702b2c45f9
+│   └── network_chaos_ng_scenarios_1755496142436906000_btmcxrri.py
+└── 1755523261039221000-0ddd9f07-bcd8-47bc-bf89-f9c4f2503ead
 ```
+
+### execute-rollback
 - `execute-rollback`: Execute rollback version files and cleanup if successful
     - By default, **all version files** located in the `rollback_versions_directory` (`/tmp/kraken-rollback/`) will be executed.
     - The version files will be renamed with `.executed` suffix for further inspection.
     - `-r RUN_UUID, --run_uuid=RUN_UUID` Flag: **Optional**. Specify the Run UUID to filter the execution of rollback version files.
     - `-s SCENARIO_TYPE, --scenario_type=SCENARIO_TYPE` Flag: **Optional**. Specify the Scenario Type to filter the execution of rollback version files.
     - **Note**: The Krkn program will leverage `importlib` to dynamically import the rollback callable function and information needed for execution, and **execute them in the Krkn program context** instead of using subprocesses or external executables.
-    - Example Usage:
-        ```bash
-        # Without filtering
-        python run_kraken.py execute-rollback --config config/config.yaml
 
-        # With filtering by Run UUID
-        python run_kraken.py execute-rollback --config config/config.yaml -r <run_uuid>
+Example Usage:
+```bash
+# Without filtering
+python run_kraken.py execute-rollback --config config/config.yaml
 
-        # With additional filtering by Scenario Type
-        python run_kraken.py execute-rollback --config config/config.yaml -r <run_uuid> -s <scenario_type>
+# With filtering by Run UUID
+python run_kraken.py execute-rollback --config config/config.yaml -r <run_uuid>
+
+# With additional filtering by Scenario Type
+python run_kraken.py execute-rollback --config config/config.yaml -r <run_uuid> -s <scenario_type>
 ```
-    - Example Output:
-        ```bash
-        2025-08-22 15:54:06,137 [INFO] Executing rollback version files
-        2025-08-22 15:54:06,137 [WARNING] scenario_type is not specified, executing all scenarios in rollback directory
-        2025-08-22 15:54:06,137 [INFO] Executing rollback for run_uuid=d3f0859b-91f7-490a-afb9-878478b1574a, scenario_type=*
-        2025-08-22 15:54:06,137 [INFO] Executing rollback version files for run_uuid=d3f0859b-91f7-490a-afb9-878478b1574a, scenario_type=*
-        2025-08-22 15:54:06,137 [INFO] Executing rollback version file: /tmp/kraken-rollback/1755523355298089000-d3f0859b-91f7-490a-afb9-878478b1574a/application_outages_scenarios_1755523353558511000_mfsaltfl.py
-        2025-08-22 15:54:06,139 [INFO] Executing rollback callable...
-        2025-08-22 15:54:06,139 [INFO] Rolling back network policy: krkn-deny-xafee in namespace: test-application-outage
-        2025-08-22 15:54:06,148 [INFO] Network policy already deleted
-        2025-08-22 15:54:06,148 [INFO] Network policy rollback completed successfully.
-        2025-08-22 15:54:06,148 [INFO] Rollback completed.
-        2025-08-22 15:54:06,148 [INFO] Executed /tmp/kraken-rollback/1755523355298089000-d3f0859b-91f7-490a-afb9-878478b1574a/application_outages_scenarios_1755523353558511000_mfsaltfl.py successfully.
-        2025-08-22 15:54:06,149 [INFO] Rollback execution completed successfully, cleaning up version files
-        2025-08-22 15:54:06,149 [INFO] Cleaning up rollback version files for run_uuid=d3f0859b-91f7-490a-afb9-878478b1574a, scenario_type=None
-        2025-08-22 15:54:06,149 [INFO] Removed /tmp/kraken-rollback/1755523355298089000-d3f0859b-91f7-490a-afb9-878478b1574a/application_outages_scenarios_1755523353558511000_mfsaltfl.py successfully.
-        2025-08-22 15:54:06,149 [INFO] Rollback execution and cleanup completed successfully
+
+Example Output:
+```bash
+2025-08-22 15:54:06,137 [INFO] Executing rollback version files
+2025-08-22 15:54:06,137 [WARNING] scenario_type is not specified, executing all scenarios in rollback directory
+2025-08-22 15:54:06,137 [INFO] Executing rollback for run_uuid=d3f0859b-91f7-490a-afb9-878478b1574a, scenario_type=*
+2025-08-22 15:54:06,137 [INFO] Executing rollback version files for run_uuid=d3f0859b-91f7-490a-afb9-878478b1574a, scenario_type=*
+2025-08-22 15:54:06,137 [INFO] Executing rollback version file: /tmp/kraken-rollback/1755523355298089000-d3f0859b-91f7-490a-afb9-878478b1574a/application_outages_scenarios_1755523353558511000_mfsaltfl.py
+2025-08-22 15:54:06,139 [INFO] Executing rollback callable...
+2025-08-22 15:54:06,139 [INFO] Rolling back network policy: krkn-deny-xafee in namespace: test-application-outage
+2025-08-22 15:54:06,148 [INFO] Network policy already deleted
+2025-08-22 15:54:06,148 [INFO] Network policy rollback completed successfully.
+2025-08-22 15:54:06,148 [INFO] Rollback completed.
+2025-08-22 15:54:06,148 [INFO] Executed /tmp/kraken-rollback/1755523355298089000-d3f0859b-91f7-490a-afb9-878478b1574a/application_outages_scenarios_1755523353558511000_mfsaltfl.py successfully.
+2025-08-22 15:54:06,149 [INFO] Rollback execution completed successfully, cleaning up version files
+2025-08-22 15:54:06,149 [INFO] Cleaning up rollback version files for run_uuid=d3f0859b-91f7-490a-afb9-878478b1574a, scenario_type=None
+2025-08-22 15:54:06,149 [INFO] Removed /tmp/kraken-rollback/1755523355298089000-d3f0859b-91f7-490a-afb9-878478b1574a/application_outages_scenarios_1755523353558511000_mfsaltfl.py successfully.
+2025-08-22 15:54:06,149 [INFO] Rollback execution and cleanup completed successfully
 ```
 
 ## Configuration of Rollback
