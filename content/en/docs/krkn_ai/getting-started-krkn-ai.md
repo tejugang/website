@@ -91,7 +91,7 @@ uv run krkn_ai run -vv -c ./krkn-ai.yaml -o ./tmp/results/ -p HOST=$HOST
 
 In the `./tmp/results` directory, you will find the results from testing. The final results contain information about each scenario, their fitness evaluation scores, reports, and graphs, which you can use to further investigate.
 
-```
+```text
 .
 └── results/
     ├── reports/
