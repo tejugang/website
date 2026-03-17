@@ -10,7 +10,7 @@ weight: 4
 
 ### Prerequisites
 
-- Python 3.9+
+- Python 3.11+
 - Podman or Docker Container Runtime
 - [krknctl](/docs/installation/krknctl.md)
 - `uv` package manager (recommended) or `pip`
@@ -47,12 +47,12 @@ git remote -v
 
 ### Install the dependencies
 
-To be sure that Krkn-AI's dependencies don't interfere with other python dependencies you may have locally, we recommend creating a virtual environment before installing the dependencies. We have only tested up to python 3.9
+To be sure that Krkn-AI's dependencies don't interfere with other python dependencies you may have locally, we recommend creating a virtual environment before installing the dependencies. We have only tested up to python 3.11
 
 Using pip package manager:
 
 ```bash
-$ python3.9 -m venv .venv
+$ python3.11 -m venv .venv
 $ source .venv/bin/activate
 $ pip install -e .
 
@@ -63,7 +63,7 @@ $ krkn_ai --help
 Using uv package manager:
 ```bash
 $ pip install uv
-$ uv venv --python 3.9
+$ uv venv --python 3.11
 $ source .venv/bin/activate
 $ uv pip install -e .
 
