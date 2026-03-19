@@ -226,10 +226,10 @@ so external certificate references are resolved before the container starts.
 {{% /alert %}}
 
 ```
-krknctl visualize --es-url http://elasticsearch:9200 --namespace krkn-visualize
+krknctl visualize --grafana-password secret --es-url http://elasticsearch:9200 --namespace krkn-visualize
 ```
 
-To tear down an existing deployment, pass the `--delete` flag:
+To tear down an existing deployment, pass the `--delete` flag (no password required):
 
 ```
 krknctl visualize --delete
