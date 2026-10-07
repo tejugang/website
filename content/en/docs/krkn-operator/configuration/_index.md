@@ -609,6 +609,27 @@ For more detailed troubleshooting, see the [ACM Integration Troubleshooting Guid
 
 ---
 
+## Backup and Restore
+
+The Krkn Operator includes a built-in backup and restore feature accessible from the web console. It exports the operator's configuration state — users, groups, target clusters, and provider settings — as a downloadable archive. Cloud-provider credentials and uploaded files are excluded from backups.
+
+### Creating a Backup
+
+From the console, open the **Backup & Restore** card and click **Download Backup**. The operator generates a `.tar.gz` archive of the current configuration and downloads it to your browser.
+
+### Restoring from a Backup
+
+Upload a previously downloaded `.tar.gz` backup archive through the **Backup & Restore** card. Only one restore can run at a time, and the maximum upload size is 100 MB.
+
+After a restore completes, the operator automatically verifies connectivity to all restored target clusters and updates their status. 
+
+{{% notice info %}}
+**Admin Only**: Both backup and restore operations require administrator privileges.
+{{% /notice %}}
+
+
+---
+
 ## Next Steps
 
 Now that you've configured your target clusters (manually or via ACM), you're ready to run chaos scenarios:

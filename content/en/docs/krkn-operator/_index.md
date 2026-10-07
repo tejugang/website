@@ -57,7 +57,9 @@ This design enables organizations to integrate krkn-operator with their existing
 
 ## Getting Started
 
-Documentation for installation and configuration is coming soon.
+Start with [Installation](installation/), then [Configuration](configuration/) and [Usage](usage/).
+
+For disaster recovery and migration planning, see [Backup and Restore](configuration/#backup-and-restore).
 
 ## Releases
 
